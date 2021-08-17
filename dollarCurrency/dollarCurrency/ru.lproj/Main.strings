@@ -1,0 +1,30 @@
+
+/* Class = "UILabel"; text = "<"; ObjectID = "3y8-pu-Att"; */
+"3y8-pu-Att.text" = "<";
+
+/* Class = "UITextField"; text = "0.00"; ObjectID = "Elz-fm-8WZ"; */
+"Elz-fm-8WZ.text" = "0.00";
+
+/* Class = "UILabel"; text = "Notice if new currency less than:"; ObjectID = "LJM-7g-Q3i"; */
+"LJM-7g-Q3i.text" = "Уведомить, если валюта меньше, чем:";
+
+/* Class = "UISegmentedControl"; NAx-a5-Ukf.segmentTitles[0] = "OFF"; ObjectID = "NAx-a5-Ukf"; */
+"NAx-a5-Ukf.segmentTitles[0]" = "OFF";
+
+/* Class = "UISegmentedControl"; NAx-a5-Ukf.segmentTitles[1] = "ON"; ObjectID = "NAx-a5-Ukf"; */
+"NAx-a5-Ukf.segmentTitles[1]" = "ON";
+
+/* Class = "UILabel"; text = ">"; ObjectID = "PNG-LR-RXY"; */
+"PNG-LR-RXY.text" = ">";
+
+/* Class = "UILabel"; text = "Notice if new currency more than:"; ObjectID = "eXu-It-MRq"; */
+"eXu-It-MRq.text" = "Уведомить, если валюта больше, чем:";
+
+/* Class = "UISegmentedControl"; s1y-rQ-6cF.segmentTitles[0] = "OFF"; ObjectID = "s1y-rQ-6cF"; */
+"s1y-rQ-6cF.segmentTitles[0]" = "OFF";
+
+/* Class = "UISegmentedControl"; s1y-rQ-6cF.segmentTitles[1] = "ON"; ObjectID = "s1y-rQ-6cF"; */
+"s1y-rQ-6cF.segmentTitles[1]" = "ON";
+
+/* Class = "UITextField"; text = "0.00"; ObjectID = "vUk-OM-h8t"; */
+"vUk-OM-h8t.text" = "0.00";
