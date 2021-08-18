@@ -25,8 +25,6 @@
 
 /* Begin PBXFileReference section */
 		F4182A2126CBD9A100B212D0 /* LocalNotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalNotificationManager.swift; sourceTree = "<group>"; };
-		F4182A2C26CC60BE00B212D0 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Main.strings; sourceTree = "<group>"; };
-		F4182A2D26CC60BE00B212D0 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		F44A50292699D489004E97DB /* dollarCurrency.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = dollarCurrency.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F44A502C2699D489004E97DB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F44A502E2699D489004E97DB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -39,6 +37,8 @@
 		F44A5043269E1E35004E97DB /* Currency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Currency.swift; sourceTree = "<group>"; };
 		F499934126BD6889001460D0 /* ParametersSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParametersSettings.swift; sourceTree = "<group>"; };
 		F499934526BEB721001460D0 /* ParametersScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParametersScreen.swift; sourceTree = "<group>"; };
+		F4D8247326CD9F6F00B084A5 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Main.strings; sourceTree = "<group>"; };
+		F4D8247426CD9F7000B084A5 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		F4E92E4A26C2EE440074C71A /* DollarCurrencyCoreDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DollarCurrencyCoreDataModel.xcdatamodel; sourceTree = "<group>"; };
 		F4E92E4C26C2EEA30074C71A /* CurrencyCoreData+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CurrencyCoreData+CoreDataClass.swift"; sourceTree = "<group>"; };
 		F4E92E4D26C2EEA30074C71A /* CurrencyCoreData+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CurrencyCoreData+CoreDataProperties.swift"; sourceTree = "<group>"; };
@@ -211,7 +211,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				F44A50332699D489004E97DB /* Base */,
-				F4182A2C26CC60BE00B212D0 /* ru */,
+				F4D8247326CD9F6F00B084A5 /* ru */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -220,7 +220,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				F44A50382699D48C004E97DB /* Base */,
-				F4182A2D26CC60BE00B212D0 /* ru */,
+				F4D8247426CD9F7000B084A5 /* ru */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";

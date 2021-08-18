@@ -8,13 +8,13 @@
 import UIKit
 import UserNotifications // для нотификции, когда установлен флаг проверки валют
 
-protocol UpdateDelegate: class {
+protocol UpdateDelegate: class { // делегат для обновления таблицы на первом экране
     func didUpdate(sender: ParametersScreen)
 }
 
 class ParametersScreen: UIViewController {
     
-    weak var delegate: UpdateDelegate?
+    weak var delegate: UpdateDelegate? // делегат для обновления таблицы на первом экране
     
     @IBOutlet weak var moreThanLabel: UILabel!
     @IBOutlet weak var lessThanLabel: UILabel!
@@ -28,11 +28,15 @@ class ParametersScreen: UIViewController {
     @IBOutlet weak var lessThanTextField: UITextField!
     
     
+    @IBOutlet weak var scrollView: UIScrollView!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupSegmentContols() // настройки сегмент контролов
         setupTextFields() // настройка тектовых полей
-        setupHideKeyboard() // устанавливаем скрытие клавиатуры
+        registerForKeyboardNotifications() // регистриуем нотификацию, чтобы знать, когда появляется ил искрывается клавиатура для того, чтобы вместе с ней двигать ScrollView
+        setupHideKeyboard() // настраиваем скрытие клавиатуры
         LocalNotificationManager.askPermissionForUserNotifications() // спрашиваем разрешение выводить нотификации
     }
     
@@ -40,9 +44,37 @@ class ParametersScreen: UIViewController {
         self.delegate?.didUpdate(sender: self) // информируем делегат об изменении
     }
     
+    deinit {
+        removeKeyboardNotifications() // удаляем обсерверы появления-исчезновения клавиатуры
+    }
+    
+    func registerForKeyboardNotifications() { // для того, чтобы понимать когда появляется клавиатура, узнать ее высоту и двигать  scrrollView
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil) // обсервер появления клаватуры и действия при этом
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil) // обсервер исчещания клавиатуры и дейстия при этом
+    }
+    
+    @objc func keyboardWillShow(_ notification: Notification) { // действие при появлении клавиатуры. Notification нужен, чтобы получить характеристики с этим уведомлением
+        let userInfo = notification.userInfo // получаем словарик из Notification
+        
+        if lessThanTextField.isEditing { // делаем смещение только при нажатии на нижний textField
+            if let keyboardFrameSize = (userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue { // размер фрейма клавиатуры
+                scrollView.contentOffset = CGPoint(x: 0, y: keyboardFrameSize.height) // смещаем контент scrollView по высоте клавиатуры
+            }
+        }
+        
+    }
+    
+    @objc func keyboardWillHide() { // действие при скрытии клавиатуры
+        scrollView.contentOffset = CGPoint.zero // возвращаем контент scrollView в начальное положение
+    }
+    
+    func removeKeyboardNotifications() { // удаляем обсерверы появления-исчезновения клавиатуры
+        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil)
+    }
     
     func setupTextFields() {
-        // настройка делегата для textField
+        // настройка делегата для textField UITextFieldDelegate для вадидации символов
         moreThanTextField.delegate = self
         lessThanTextField.delegate = self
         // записываем установленные числа
@@ -150,7 +182,7 @@ class ParametersScreen: UIViewController {
 }
 
 
-extension ParametersScreen {
+extension ParametersScreen { // настройки скрытия клавиатуры
     func setupHideKeyboard() { // настраиваем скрытие клавиатуры
         let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(hideKeyboard))
         view.addGestureRecognizer(tapGestureRecognizer)
