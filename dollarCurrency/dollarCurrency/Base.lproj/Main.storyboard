@@ -121,7 +121,7 @@
                                                     <constraint firstAttribute="width" constant="208" id="vS5-rd-qHC"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="50"/>
-                                                <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
+                                                <textInputTraits key="textInputTraits" keyboardType="decimalPad" enablesReturnKeyAutomatically="YES"/>
                                             </textField>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Notice if new currency less than:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LJM-7g-Q3i">
                                                 <rect key="frame" x="45" y="287" width="275" height="61"/>

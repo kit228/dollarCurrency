@@ -80,6 +80,21 @@ class ParametersScreen: UIViewController {
         // записываем установленные числа
         moreThanTextField.text = String(ParametersSettings.parameterMoreThanNeed)
         lessThanTextField.text = String(ParametersSettings.parameterLessThanNeed)
+        // чтобы для локалей, где в decimalPad показывается только запятая (а не точка), показывалась полноценная клавиатура numbersAndPunctuation
+        self.setCorrectDecimalKeyboard(UITextField: moreThanTextField)
+        self.setCorrectDecimalKeyboard(UITextField: lessThanTextField)
+    }
+    
+    func setCorrectDecimalKeyboard(UITextField: UITextField)  { // чтобы для локалей, где в decimalPad показывается только запятая (а не точка), показывалась полноценная клавиатура numbersAndPunctuation
+       
+        let language = Locale.current.identifier
+       
+        if (language == "en_GB" || language == "en_US") {
+            UITextField.keyboardType = UIKeyboardType.decimalPad
+        }
+        else {
+            UITextField.keyboardType = UIKeyboardType.numbersAndPunctuation
+        }
     }
     
     func setupSegmentContols() {
